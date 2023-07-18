@@ -1,11 +1,13 @@
 const counter = document.getElementById('counter');
 const button = document.getElementById('button');
 
-let count = 0;
+let count = JSON.parse(localStorage.getItem("count") || "0");
+counter.innerText = count;
 
 button.addEventListener('click', () => {
  count++;
- counter.innerHTML = count;
+ localStorage.setItem("count", JSON.stringify(count));
+ counter.innerText = count;
 })
 
 function createRipple(e) {
